@@ -31,7 +31,7 @@ static const SceneVertex vertices[] = {
              @"View controller's view is not a GLKView");
     
     //声明一个上下文,kEAGLRenderingAPIOpenGLES2:默认优先使用2.0版
-    view.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    view.context = [[AGLKContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     
     [EAGLContext setCurrentContext:view.context];
     
@@ -48,6 +48,7 @@ static const SceneVertex vertices[] = {
     
     CGImageRef imageRef = [UIImage imageNamed:@"leaves.gif"].CGImage;
     
+    //创建一个新的包含CGImageRef的像素数据的OpenGL ES 纹理缓存
     GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:imageRef options:nil error:NULL];
     
     self.baseEffect.texture2d0.name = textureInfo.name;
@@ -60,16 +61,11 @@ static const SceneVertex vertices[] = {
     [self.baseEffect prepareToDraw];
     
     //设置当前绑定的帧缓存使用前边glclearcolor()函数设定的值
-    glClear(GL_COLOR_BUFFER_BIT);
+    [(AGLKContext *)view.context clear:GL_COLOR_BUFFER_BIT];
     
-    //step4:启动顶点缓存渲染操作
-    glEnableVertexAttribArray(GLKVertexAttribPosition);
-    
-    //step5:寻找、解释顶点数据（第一次参数：当前缓存包含顶点的位置信息，第二参数：每个位置有三个部分，第三参数：每个部分都保存为一个浮点类型值，第四参数：第四参数：小数点固定位置是否可以改变，第五参数：叫做步幅，指定了每个顶点的保存需要多少字节，第六参数：从顶点缓存的开始位置访问顶点数据）
-    glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(SceneVertex), NULL);
-    
-    //step6:执行绘图（第一参数：告诉GPU如何处理顶点数据，渲染三角形，第二参数：缓存内需要渲染的第一个顶点的位置，第三参数：需要渲染的顶点的数量）
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    [self.vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribPosition numberOfCoordinates:3 attribOffset:offsetof(SceneVertex, positionCoords) shouldEnable:YES];
+    [self.vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribTexCoord0 numberOfCoordinates:2 attribOffset:offsetof(SceneVertex, textureCoords) shouldEnable:YES];
+    [self.vertexBuffer drawArrayWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:3];
 }
 
 -(void)dealloc
