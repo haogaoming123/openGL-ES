@@ -1,10 +1,11 @@
 //
 //  ViewController.m
-//  LearnOpenGLES_1
+//  LearnOpenGLES_2
 //
-//  Created by haogaoming on 2017/10/16.
+//  Created by haogaoming on 2017/10/17.
 //  Copyright © 2017年 郝高明. All rights reserved.
 //
+
 
 #import "ViewController.h"
 
@@ -71,7 +72,7 @@ static const SceneVertex vertices[] = {
     glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(SceneVertex), NULL);
     
     //step6:执行绘图（第一参数：告诉GPU如何处理顶点数据，渲染三角形，第二参数：缓存内需要渲染的第一个顶点的位置，第三参数：需要渲染的顶点的数量）
-    glDrawArrays(GL_TRIANGLES, 0, 3); 
+    glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
 -(void)dealloc
@@ -90,6 +91,5 @@ static const SceneVertex vertices[] = {
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 
 @end
