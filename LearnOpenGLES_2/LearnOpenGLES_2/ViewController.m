@@ -11,21 +11,17 @@
 
 typedef struct {
     GLKVector3 positionCoords;  //保存3个坐标：x,y,z
+    GLKVector2 textureCoords;   //纹理操作
 }SceneVertex;
 
 //初始化C数组，vertices变量用来定义一个三角形
 static const SceneVertex vertices[] = {
-    {{-0.5f, -0.5f, 0.0}}, // x,y,x坐标
-    {{ 0.5f, -0.5f, 0.0}}, // x,y,x坐标
-    {{-0.5f,  0.5f, 0.0}}  // x,y,x坐标
+    {{-0.5f, -0.5f, 0.0}, {0.0f, 0.0f}}, // x,y,x坐标, 纹理坐标
+    {{ 0.5f, -0.5f, 0.0}, {1.0f, 0.0f}}, // x,y,x坐标, 纹理坐标
+    {{-0.5f,  0.5f, 0.0}, {0.0f, 1.0f}}  // x,y,x坐标, 纹理坐标
 };
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
-@synthesize baseEffect;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
