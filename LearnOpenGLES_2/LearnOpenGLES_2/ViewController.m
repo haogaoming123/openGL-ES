@@ -6,8 +6,8 @@
 //  Copyright © 2017年 郝高明. All rights reserved.
 //
 
-
 #import "ViewController.h"
+#import "AGLKContext.h"
 
 typedef struct {
     GLKVector3 positionCoords;  //保存3个坐标：x,y,z
@@ -42,15 +42,16 @@ static const SceneVertex vertices[] = {
     self.baseEffect.constantColor = GLKVector4Make(1.0f, 1.0f, 1.0f, 1.0f);
     
     //清除颜色，用于在上下文的帧缓存被清除时初始化每个像素的颜色
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    ((AGLKContext *)view.context).clearColor = GLKVector4Make(0.0f, 0.0f, 0.0f, 1.0f);
     
-    //step1:为缓存生成一个唯一标识符(第一个参数为：生成的缓存标识符的数量)
-    glGenBuffers(1, &vertexBufferID);
-    //step2:为接下来的运算绑定缓存（第一参数为：指定要绑定的缓存类型，第二个参数：要绑定的缓存标识符）
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBufferID);
-    //step3:复制数据到缓存中（第一参数：缓存类型，第二参数：缓存的字节数量，第三参数：复制字节的地址，第四参数：提示缓存在未来的计算中可能将会被怎样使用）
-    //GL_STATIC_DRAW:告诉上下文，缓存内的数据不会频繁更改；GL_DYNAMIC_DRAW：缓存内的数据会频繁的更改
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    self.vertexBuffer = [[AGLKVertexAttribArrayBuffer alloc] initWithAttribStride:sizeof(SceneVertex) numberOfVertices:sizeof(vertices) / sizeof(SceneVertex) bytes:vertices usage:GL_STATIC_DRAW];
+    
+    CGImageRef imageRef = [UIImage imageNamed:@"leaves.gif"].CGImage;
+    
+    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:imageRef options:nil error:NULL];
+    
+    self.baseEffect.texture2d0.name = textureInfo.name;
+    self.baseEffect.texture2d0.target = textureInfo.target;
 }
 
 -(void)glkView:(GLKView *)view drawInRect:(CGRect)rect

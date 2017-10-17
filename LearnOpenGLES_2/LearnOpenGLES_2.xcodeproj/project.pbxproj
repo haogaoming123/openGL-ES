@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE9BFDF61F95DEFA00DDBD93 /* AGLKContext.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9BFDF31F95DEFA00DDBD93 /* AGLKContext.m */; };
+		AE9BFDF71F95DEFA00DDBD93 /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9BFDF41F95DEFA00DDBD93 /* AGLKVertexAttribArrayBuffer.m */; };
+		AE9BFDFB1F95E08000DDBD93 /* leaves.gif in Resources */ = {isa = PBXBuildFile; fileRef = AE9BFDFA1F95E08000DDBD93 /* leaves.gif */; };
 		AEC35B471F95D94A0064C6B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC35B461F95D94A0064C6B5 /* AppDelegate.m */; };
 		AEC35B4A1F95D94A0064C6B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC35B491F95D94A0064C6B5 /* ViewController.m */; };
 		AEC35B4D1F95D94A0064C6B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEC35B4B1F95D94A0064C6B5 /* Main.storyboard */; };
@@ -16,6 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE9BFDF21F95DEFA00DDBD93 /* AGLKContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKContext.h; sourceTree = "<group>"; };
+		AE9BFDF31F95DEFA00DDBD93 /* AGLKContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKContext.m; sourceTree = "<group>"; };
+		AE9BFDF41F95DEFA00DDBD93 /* AGLKVertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKVertexAttribArrayBuffer.m; sourceTree = "<group>"; };
+		AE9BFDF51F95DEFA00DDBD93 /* AGLKVertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKVertexAttribArrayBuffer.h; sourceTree = "<group>"; };
+		AE9BFDFA1F95E08000DDBD93 /* leaves.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = leaves.gif; sourceTree = "<group>"; };
 		AEC35B421F95D94A0064C6B5 /* LearnOpenGLES_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnOpenGLES_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC35B451F95D94A0064C6B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AEC35B461F95D94A0064C6B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -39,9 +47,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE9BFDF11F95DE3300DDBD93 /* 自定义GLK文件 */ = {
+			isa = PBXGroup;
+			children = (
+				AE9BFDF21F95DEFA00DDBD93 /* AGLKContext.h */,
+				AE9BFDF31F95DEFA00DDBD93 /* AGLKContext.m */,
+				AE9BFDF51F95DEFA00DDBD93 /* AGLKVertexAttribArrayBuffer.h */,
+				AE9BFDF41F95DEFA00DDBD93 /* AGLKVertexAttribArrayBuffer.m */,
+			);
+			path = "自定义GLK文件";
+			sourceTree = "<group>";
+		};
 		AEC35B391F95D94A0064C6B5 = {
 			isa = PBXGroup;
 			children = (
+				AE9BFDFA1F95E08000DDBD93 /* leaves.gif */,
 				AEC35B441F95D94A0064C6B5 /* LearnOpenGLES_2 */,
 				AEC35B431F95D94A0064C6B5 /* Products */,
 			);
@@ -58,6 +78,7 @@
 		AEC35B441F95D94A0064C6B5 /* LearnOpenGLES_2 */ = {
 			isa = PBXGroup;
 			children = (
+				AE9BFDF11F95DE3300DDBD93 /* 自定义GLK文件 */,
 				AEC35B451F95D94A0064C6B5 /* AppDelegate.h */,
 				AEC35B461F95D94A0064C6B5 /* AppDelegate.m */,
 				AEC35B481F95D94A0064C6B5 /* ViewController.h */,
@@ -131,6 +152,7 @@
 			files = (
 				AEC35B521F95D94A0064C6B5 /* LaunchScreen.storyboard in Resources */,
 				AEC35B4F1F95D94A0064C6B5 /* Assets.xcassets in Resources */,
+				AE9BFDFB1F95E08000DDBD93 /* leaves.gif in Resources */,
 				AEC35B4D1F95D94A0064C6B5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,7 +164,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9BFDF61F95DEFA00DDBD93 /* AGLKContext.m in Sources */,
 				AEC35B4A1F95D94A0064C6B5 /* ViewController.m in Sources */,
+				AE9BFDF71F95DEFA00DDBD93 /* AGLKVertexAttribArrayBuffer.m in Sources */,
 				AEC35B551F95D94A0064C6B5 /* main.m in Sources */,
 				AEC35B471F95D94A0064C6B5 /* AppDelegate.m in Sources */,
 			);
