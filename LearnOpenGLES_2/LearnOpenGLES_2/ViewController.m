@@ -21,6 +21,13 @@ static const SceneVertex vertices[] = {
     {{-0.5f,  0.5f, 0.0}, {0.0f, 1.0f}}  // x,y,x坐标, 纹理坐标
 };
 
+@interface ViewController ()
+
+@property (nonatomic,strong) GLKTextureInfo *textureInfo0;
+@property (nonatomic,strong) GLKTextureInfo *textureInfo1;
+
+@end
+
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -49,14 +56,21 @@ static const SceneVertex vertices[] = {
     CGImageRef imageRef = [UIImage imageNamed:@"leaves.gif"].CGImage;
     
     //创建一个新的包含CGImageRef的像素数据的OpenGL ES 纹理缓存
-    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:imageRef options:nil error:NULL];
+    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:imageRef options:@{@(1):GLKTextureLoaderOriginBottomLeft} error:NULL];
+    self.textureInfo0 = textureInfo;
     
-    self.baseEffect.texture2d0.name = textureInfo.name;
-    self.baseEffect.texture2d0.target = textureInfo.target;
+    CGImageRef imageRef1 = [UIImage imageNamed:@"beetle"].CGImage;
+    GLKTextureInfo *textureInfo1 = [GLKTextureLoader textureWithCGImage:imageRef1 options:@{@(1):GLKTextureLoaderOriginBottomLeft} error:NULL];
+    self.textureInfo1 = textureInfo1;
+    
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 -(void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
+    self.baseEffect.texture2d0.name = self.textureInfo0.name;
+    self.baseEffect.texture2d0.target = self.textureInfo0.target;
     //准备好绘图
     [self.baseEffect prepareToDraw];
     
@@ -65,7 +79,7 @@ static const SceneVertex vertices[] = {
     
     [self.vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribPosition numberOfCoordinates:3 attribOffset:offsetof(SceneVertex, positionCoords) shouldEnable:YES];
     [self.vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribTexCoord0 numberOfCoordinates:2 attribOffset:offsetof(SceneVertex, textureCoords) shouldEnable:YES];
-    [self.vertexBuffer drawArrayWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:3];
+    [self.vertexBuffer drawArrayWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:6];
 }
 
 -(void)dealloc

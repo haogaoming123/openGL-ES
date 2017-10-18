@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE7E9EF71F96F08300F5BF8D /* beetle.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7E9EF61F96F08300F5BF8D /* beetle.png */; };
 		AE9BFDF61F95DEFA00DDBD93 /* AGLKContext.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9BFDF31F95DEFA00DDBD93 /* AGLKContext.m */; };
 		AE9BFDF71F95DEFA00DDBD93 /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9BFDF41F95DEFA00DDBD93 /* AGLKVertexAttribArrayBuffer.m */; };
 		AE9BFDFB1F95E08000DDBD93 /* leaves.gif in Resources */ = {isa = PBXBuildFile; fileRef = AE9BFDFA1F95E08000DDBD93 /* leaves.gif */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE7E9EF61F96F08300F5BF8D /* beetle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beetle.png; sourceTree = "<group>"; };
 		AE9BFDF21F95DEFA00DDBD93 /* AGLKContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKContext.h; sourceTree = "<group>"; };
 		AE9BFDF31F95DEFA00DDBD93 /* AGLKContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKContext.m; sourceTree = "<group>"; };
 		AE9BFDF41F95DEFA00DDBD93 /* AGLKVertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKVertexAttribArrayBuffer.m; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 		AEC35B391F95D94A0064C6B5 = {
 			isa = PBXGroup;
 			children = (
+				AE7E9EF61F96F08300F5BF8D /* beetle.png */,
 				AE9BFDFA1F95E08000DDBD93 /* leaves.gif */,
 				AEC35B441F95D94A0064C6B5 /* LearnOpenGLES_2 */,
 				AEC35B431F95D94A0064C6B5 /* Products */,
@@ -154,6 +157,7 @@
 				AEC35B4F1F95D94A0064C6B5 /* Assets.xcassets in Resources */,
 				AE9BFDFB1F95E08000DDBD93 /* leaves.gif in Resources */,
 				AEC35B4D1F95D94A0064C6B5 /* Main.storyboard in Resources */,
+				AE7E9EF71F96F08300F5BF8D /* beetle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
